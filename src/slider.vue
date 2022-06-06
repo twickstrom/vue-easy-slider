@@ -120,7 +120,6 @@ export default {
   },
 
   watch: {
-    // FIXME: debounce
     modelValue(current) {
       const step = current - this.currentIndex
 
@@ -135,7 +134,6 @@ export default {
   created() {
     this.init = throttle(this.init, 100)
     this.move = debounce(this.move, this.speed - 200)
-    this.$on('slider:init', this.init)
   },
   mounted() {
     this.init()
@@ -158,6 +156,7 @@ export default {
 
   methods: {
     init() {
+      console.log(this.$slots.default())
       this.sliderItems = this.$children.filter(child => {
         return child.$options.name === 'SliderItem'
       })
