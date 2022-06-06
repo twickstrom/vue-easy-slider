@@ -7,7 +7,7 @@
       v-bind="$attrs"
       :style="{ zIndex: zIndex, transition: `all ${speed / 1000}s` }"
       class="slider-item"
-      v-on="$listeners"
+      v-bind="$attrs"
     >
       <slot />
     </div>
