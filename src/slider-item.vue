@@ -30,13 +30,13 @@ export default {
   },
 
   created() {
-    this.$parent.$emit('slider:init')
+    this.$parent.init()
     this.speed = this.$parent.speed || 500
     this.animation = this.$parent.animation || 'normal'
   },
 
   destroyed() {
-    this.$parent.$emit('slider:init')
+    this.$parent.init()
   },
 
   methods: {

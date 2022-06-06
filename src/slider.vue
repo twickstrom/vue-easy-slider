@@ -47,12 +47,8 @@ import AlloyFinger from './alloyfinger'
 
 export default {
   name: 'Slider',
-  model: {
-    prop: 'value',
-    event: 'change',
-  },
   props: {
-    value: {
+    modelValue: {
       type: Number,
       default: 0,
     },
@@ -125,12 +121,14 @@ export default {
 
   watch: {
     // FIXME: debounce
-    value(current) {
+    modelValue(current) {
       const step = current - this.currentIndex
 
       if (!step || current < 0 || current > this.sliderItems.length - 1) return
 
       this.handleIndicator(step)
+
+      this.$emit('update:modelValue', current)
     },
   },
 
@@ -164,8 +162,8 @@ export default {
         return child.$options.name === 'SliderItem'
       })
 
-      if (this.sliderItems[this.value]) {
-        this.currentIndex = this.value
+      if (this.sliderItems[this.modelValue]) {
+        this.currentIndex = this.modelValue
       }
 
       const currentItem = this.sliderItems[this.currentIndex]
