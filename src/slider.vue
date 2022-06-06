@@ -156,8 +156,8 @@ export default {
 
   methods: {
     init() {
-      console.log(this.$slots.default())
-      this.sliderItems = this.$children.filter(child => {
+      this.sliderItems = this.$slots.default().filter(child => {
+        console.log(child, child.$options.name)
         return child.$options.name === 'SliderItem'
       })
 
