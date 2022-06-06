@@ -370,54 +370,30 @@ export default {
 		}
 	}
 }
-@-moz-keyframes {
-	scale {
-		0% {
+@keyframes scale {
+  0% {
     transform: scale(1);
-		opacity: 1;
+    opacity: 1;
 	}
-}
-45% {
-	transform: scale(0.1);
-	opacity: 0.7;
-	transform: scale(0.1);
-	opacity: 0.7;
-	transform: scale(0.1);
-	opacity: 0.7;
-	transform: scale(0.1);
-	opacity: 0.7;
-}
-80% {
-	transform: scale(1);
-	opacity: 1;
-	transform: scale(1);
-	opacity: 1;
-	transform: scale(1);
-	opacity: 1;
-	transform: scale(1);
-	opacity: 1;
-}
-} {
-	@-webkit-keyframes {
-		scale {
-			0% {
-    transform: scale(1);
-			opacity: 1;
-		}
-	}
-	@-o-keyframes {
-		scale {
-			0% {
-    transform: scale(1);
-			opacity: 1;
-		}
-	}
-	@keyframes {
-		scale {
-			0% {
-    transform: scale(1);
-			opacity: 1;
-		}
-	}
+  45% {
+  	transform: scale(0.1);
+  	opacity: 0.7;
+  	transform: scale(0.1);
+  	opacity: 0.7;
+  	transform: scale(0.1);
+  	opacity: 0.7;
+  	transform: scale(0.1);
+  	opacity: 0.7;
+  }
+  80% {
+  	transform: scale(1);
+  	opacity: 1;
+  	transform: scale(1);
+  	opacity: 1;
+  	transform: scale(1);
+  	opacity: 1;
+  	transform: scale(1);
+  	opacity: 1;
+  }
 }
 </style>
