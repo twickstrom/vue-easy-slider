@@ -157,8 +157,8 @@ export default {
   methods: {
     init() {
       this.sliderItems = this.$slots.default().filter(child => {
-        console.log(child, child.$options.name)
-        return child.$options.name === 'SliderItem'
+        console.log(child)
+        return true //child.$options.name === 'SliderItem'
       })
 
       if (this.sliderItems[this.modelValue]) {
