@@ -65,29 +65,35 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-.slider-item
-  position absolute
-  top 0
-  left 0
-
-  width 100%
-  height 100%
+<style lang="scss" scoped>
+.slider-item {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
 .normal-right-enter,
-.normal-left-leave-to
-  transform translateX(-100%)
+.normal-left-leave-to {
+	transform: translateX(-100%);
+}
 .normal-left-enter,
-.normal-right-leave-to
-  transform translateX(100%)
+.normal-right-leave-to {
+	transform: translateX(100%);
+}
 .fade-left-enter,
 .fade-right-enter,
 .fade-left-leave-to,
-.fade-right-leave-to
-  opacity 0
+.fade-right-leave-to {
+	opacity: 0;
+}
 .fade-right-enter,
-.fade-left-leave-to
-  transform translateX(-10px)
+.fade-left-leave-to {
+	transform: translateX(-10px);
+}
 .fade-left-enter,
-.fade-right-leave-to
-  transform translateX(10px)
+.fade-right-leave-to {
+	transform: translateX(10px);
+}
+
 </style>

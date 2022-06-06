@@ -263,107 +263,161 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-.slider
-  position relative
-  overflow hidden
-  &-items
-    width 100%
-    height 100%
-
-  &-btn
-    position absolute
-    top 0
-    z-index 999
-
-    height 100%
-    width 50px
-    border none
-
-    background rgba(0, 0, 0, .1)
-    outline none
-    transition background .3s
-    cursor pointer
-    &:hover .slider-icon
-      border-color rgba(255, 255, 255, 1)
-  &-btn-left
-    left 0
-    background linear-gradient(90deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0))
-  &-btn-right
-    right 0
-    background linear-gradient(-90deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0))
-  &-icon
-    display inline-block
-    width 15px
-    height 15px
-    border-left 2px solid rgba(255, 255, 255, .6)
-    border-bottom 2px solid rgba(255, 255, 255, .6)
-
-    transition border .2s
-  &-icon-left
-    transform rotate(45deg)
-  &-icon-right
-    transform rotate(-135deg)
-
-  &-indicators
-    position absolute
-    bottom 20px
-    z-index 999
-    &-center
-      left 50%
-      transform translateX(-50%)
-    &-left
-      left 6%
-    &-right
-      right 6%
-  &-indicator-icon
-    display inline-block
-    width 10px
-    height 10px
-    margin 0 .1rem
-
-    cursor pointer
-    border-radius 50%
-    background-color rgba( 0, 0, 0, .2)
-  &-indicator-active
-    background-color rgba( 255, 255, 255, .2)
-
-  &-loading
-    position absolute
-    top 0
-    left 0
-    z-index 99
-    width 100%
-    height 100%
-    background rgba(0, 0, 0, .1)
-    display flex
-    justify-content center
-    align-items center
-
-.ball-pulse
-  & > div:nth-child(1)
-    animation scale 0.75s -0.24s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08)
-  & > div:nth-child(2)
-    animation scale 0.75s -0.12s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08)
-  & > div:nth-child(3)
-    animation scale 0.75s 0s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08)
-  & > div
-    background-color #fff
-    width 15px
-    height 15px
-    border-radius 100%
-    margin 2px
-    animation-fill-mode both
-    display inline-block
-
-@keyframes scale
-  0%
-    transform scale(1)
-    opacity 1
-  45%
-    transform scale(0.1)
-    opacity 0.7
-  80%
-    transform scale(1)
-    opacity 1
+<style lang="scss" scoped>
+.slider {
+	position: relative;
+	overflow: hidden;
+}
+.slider-items {
+	width: 100%;
+	height: 100%;
+}
+.slider-btn {
+	position: absolute;
+	top: 0;
+	z-index: 999;
+	height: 100%;
+	width: 50px;
+	border: none;
+	background: rgba(0,0,0,0.1);
+	outline: none;
+	transition: background 0.3s;
+	cursor: pointer;
+	&:hover {
+		.slider-icon {
+			border-color: #fff;
+		}
+	}
+}
+.slider-btn-left {
+	left: 0;
+	background: linear-gradient(90deg, rgba(0,0,0,0.1), rgba(0,0,0,0));
+}
+.slider-btn-right {
+	right: 0;
+	background: linear-gradient(-90deg, rgba(0,0,0,0.1), rgba(0,0,0,0));
+}
+.slider-icon {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	border-left: 2px solid rgba(255,255,255,0.6);
+	border-bottom: 2px solid rgba(255,255,255,0.6);
+	transition: border 0.2s;
+}
+.slider-icon-left {
+	transform: rotate(45deg);
+}
+.slider-icon-right {
+	transform: rotate(-135deg);
+}
+.slider-indicators {
+	position: absolute;
+	bottom: 20px;
+	z-index: 999;
+}
+.slider-indicators-center {
+	left: 50%;
+	transform: translateX(-50%);
+}
+.slider-indicators-left {
+	left: 6%;
+}
+.slider-indicators-right {
+	right: 6%;
+}
+.slider-indicator-icon {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin: 0 0.1rem;
+	cursor: pointer;
+	border-radius: 50%;
+	background-color: rgba(0,0,0,0.2);
+}
+.slider-indicator-active {
+	background-color: rgba(255,255,255,0.2);
+}
+.slider-loading {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 99;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.1);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.ball-pulse {
+	& > div {
+		background-color: #fff;
+		width: 15px;
+		height: 15px;
+		border-radius: 100%;
+		margin: 2px;
+		animation-fill-mode: both;
+		display: inline-block;
+		&:nth-child(1) {
+			animation: scale 0.75s -0.24s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+		}
+		&:nth-child(2) {
+			animation: scale 0.75s -0.12s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+		}
+		&:nth-child(3) {
+			animation: scale 0.75s 0s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+		}
+	}
+}
+@-moz-keyframes {
+	scale {
+		0% {
+    transform: scale(1);
+		opacity: 1;
+	}
+}
+45% {
+	transform: scale(0.1);
+	opacity: 0.7;
+	transform: scale(0.1);
+	opacity: 0.7;
+	transform: scale(0.1);
+	opacity: 0.7;
+	transform: scale(0.1);
+	opacity: 0.7;
+}
+80% {
+	transform: scale(1);
+	opacity: 1;
+	transform: scale(1);
+	opacity: 1;
+	transform: scale(1);
+	opacity: 1;
+	transform: scale(1);
+	opacity: 1;
+}
+} {
+	@-webkit-keyframes {
+		scale {
+			0% {
+    transform: scale(1);
+			opacity: 1;
+		}
+	}
+	@-o-keyframes {
+		scale {
+			0% {
+    transform: scale(1);
+			opacity: 1;
+		}
+	}
+	@keyframes {
+		scale {
+			0% {
+    transform: scale(1);
+			opacity: 1;
+		}
+	}
+}
 </style>
